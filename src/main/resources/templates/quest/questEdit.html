@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link th:href="@{/css/content.css}" rel="stylesheet">
+<title>BigQuestEdit</title>
+</head>
+<body>
+	<h1>BigQuestEdit</h1>
+	<form th:action="@{/bq/edit/{bid}(bid = ${bqm.id})}" method="post">
+		<input type = "text" th:value = "${bqm.questName}" name = "questName"/>
+		<select  name = "valueModel">
+		<option th:selected = "${vm.id == bqm.valueModel.getId()}" th:each = "vm : ${vms}" th:value = "${vm.id}" th:text = "${vm.value}" name = "value_model"></option>
+		</select>
+		<input type = "submit" value = "Update"/>
+	</form>
+	<a th:href = "@{/bq}">re</a>
+	<a th:href = "@{/}">Top</a>
+</body>
+</html>

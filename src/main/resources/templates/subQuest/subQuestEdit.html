@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link th:href="@{/css/content.css}" rel="stylesheet">
+<title>SubQuestEdit</title>
+</head>
+<body>
+	<h1>SubQuestEdit</h1>
+	<form th:action="@{/sq/edit/{sid}(sid = ${sqm.id})}" method="post">
+		<input type = "text" th:value = "${sqm.subQuestName}" name = "subQuestName"/>
+		<input type = "number" th:value = "${sqm.SQExperiencePoint}" name = "SQExperiencePoint"/>
+		<input type = "text" th:value = "${sqm.unit}" name = "unit"/>
+		<select  name = "BQModel">
+		<option th:selected = "${bqm.id == sqm.bqm.getId()}" th:each = "bqm : ${bqms}" th:value = "${bqm.id}" th:text = "${bqm.questName}"></option>
+		</select>
+		<input type = "submit" value = "Update"/>
+	</form>
+	<a th:href = "@{/sq/{bid}(bid = ${sqm.bqm.getId()})}">re</a>
+	<a th:href = "@{/}">Top</a>
+</body>
+</html>

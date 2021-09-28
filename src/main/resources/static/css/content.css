@@ -1,0 +1,83 @@
+@charset "UTF-8";
+:root{
+	--mainColor:#003f67;
+	--subColor:#fedd6b;
+	--accentColor:#ad0003;
+}
+
+.site-header{
+	background-color:var(--accentColor);
+	width:100%;
+	padding:none;
+}
+
+
+.site-header a{
+	color:var(--subColor);
+	text-decoration:none;
+	width:100%;
+}
+
+body{
+	background-color:var(--mainColor);
+	color:var(--subColor);
+	
+}
+
+body a{
+	color:var(--subColor);
+	text-decoration:underline var(--accentColor);
+}
+
+.inContainer a{
+	align-self:center;
+}
+
+.container{
+	display:flex;
+	flex-direction:column;
+	text-align:left;
+}
+.container a{
+	padding-left:10px;
+	padding-right:10px;
+}
+
+.inContainer{
+	display:flex;
+	flex-direction:row;
+}
+
+.menu{
+	display:flex;
+	flex-direction:row;
+	justify-content:center;
+}
+
+.menu a{
+	padding:10px;
+	color:var(--subColor);
+}
+
+input{
+	background-color:var(--accentColor);
+	color:var(--subColor);
+}
+
+table{
+	text-align:center;
+}
+
+th,td{
+	padding:10px;
+}
+
+.recordValue{
+	display:flex;
+	flex-direction:row;
+	align-self:center;
+}
+
+.recordValue p{
+	padding-right:10px;
+}

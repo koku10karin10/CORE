@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link th:href="@{/css/content.css}" rel="stylesheet">
+<title>New Value</title>
+</head>
+<body>
+	<form th:action = "@{/value/new}" method = "post">
+	<label>Value Name</label><br>
+	<input type="text" name = "value" />
+	<label>Value Ranking</label><br>
+	<input type="text" name = "ranking" />
+	<input type="submit"  value ="Create"/>
+	</form>
+	<a th:href = "@{/value/edit}">re</a>
+</body>
+</html>

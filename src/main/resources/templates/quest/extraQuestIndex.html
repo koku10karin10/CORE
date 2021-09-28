@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link th:href="@{/css/content.css}" rel="stylesheet">
+<title>ExtraQuest</title>
+</head>
+<body>
+<table>
+	  <thead>
+		<tr>
+			<th>ExtraQuest</th>
+			<th>Total Count</th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+	  </thead>
+	  <tbody>
+	  	<tr th:each = "eqm : ${eqms}">
+	  		<td th:text ="${eqm.extraQuestName}"></td>
+	  		<td th:text = "${eqm.clearCount}"></td>
+	  		<td>
+	  			<form th:action="@{/eq/count/{eid}(eid=${eqm.id})}" method="post">
+                <input type="submit" value="Complete" />
+              </form>
+	  		</td>
+	  		<td><a th:href = "@{/eq/edit/{eid}(eid = ${eqm.id})}" >Edit</a></td>
+	  		<td>
+	  		  <form th:action="@{/eq/delete/{eid}(eid=${eqm.id})}" method="post">
+                <input type="submit" value="delete" />
+              </form>
+	  		</td>
+	  	</tr>
+	  </tbody>	
+	</table>
+
+	<a th:href = "@{/eq/new}">New ExtraQuest</a>
+	<a th:href = "@{/}">re</a>
+
+</body>
+</html>

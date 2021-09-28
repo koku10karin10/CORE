@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link th:href="@{/css/content.css}" rel="stylesheet">
+<title>Sub Quest Create</title>
+</head>
+<body>
+	<h1>SubQuest Create</h1>
+	<form th:action = "@{/sq/new/{bid}(bid = ${bqm.id})}" method = "post">
+		<label>SubQuestName</label>
+		<input type = "text" name = "subQuestName"/>
+		<label>クエストをクリアするとどれだけ経験値が入りますか?</label>
+		<input type = "number" name = "SQExperiencePoint"/>
+		<label>記録する数値の単位は?（例：kg、cm等）</label>
+		<input type = "text" name = "unit"/>
+		<input type = "hidden" name = "bqm"/>
+		<p><input type="submit" value="送信する"></p>
+	</form>
+	<label>Big Quest Name</label>
+	<p th:text ="${bqm.questName}"></p>
+	<a th:href = "@{/sq/{bid}(bid = ${bqm.id})}">re</a>
+</body>
+</html>

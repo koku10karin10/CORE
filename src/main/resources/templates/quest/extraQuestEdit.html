@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link th:href="@{/css/content.css}" rel="stylesheet">
+<title>ExtraQuestEdit</title>
+</head>
+<body>
+	<h1>ExtraQuestEdit</h1>
+	<form th:action="@{/eq/edit/{eid}(eid = ${eqm.id})}" method="post">
+		<label>クエスト名を変えてね</label>
+		<input type = "text" th:value = "${eqm.extraQuestName}" name = "extraQuestName"/>
+		<label>一回クリアした時に溜まるガチャポイントを変えてね</label>
+		<input type = "number" th:value = "${eqm.experiencePoint}" name = "experiencePoint"/>
+		<input type = "submit" value = "Update"/>
+	</form>
+	<a th:href = "@{/eq}">re</a>
+	<a th:href = "@{/}">Top</a>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link th:href="@{/css/content.css}" rel="stylesheet">
+<title>Insert title here</title>
+</head>
+<body>
+	<th:block th:if = "${bqms.size > 0}">
+	<table>
+	  <thead>
+		<tr>
+			<th>BigQuest</th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+	  </thead>
+	  <tbody>
+	  	<tr th:each = "bqm : ${bqms}">
+	  		<td><a th:href = "@{/sq/{bid}(bid = ${bqm.id})}" th:text ="${bqm.questName}"></a></td>
+	  		<td><a th:href = "@{/bq/edit/{bid}(bid = ${bqm.id})}">Edit</a></td>
+	  		<th:block th:if="${bqm.clear == false}">
+	  			<td>
+	  			<form th:action="@{/bq/clear/{bid}(bid=${bqm.id})}" method="post">
+                	<input type="submit" value="Clear" />
+           		</form>
+	  			</td>
+	  		</th:block>
+	  		<th:block th:if="${bqm.clear == true}">
+	  		<td>
+	  		  <p>Cleared</p>
+	  		</td>
+	  		</th:block>
+	  		<th:block th:if="${bqm.finishedDay != null}">
+	  			<td th:text = "${bqm.finishedDay}"></td>
+	  		</th:block>
+	  		<th:block th:if="${bqm.finishedDay == null}">
+	  			<td></td>
+	  		</th:block>
+	  		<td>
+	  		  <form th:action="@{/bq/delete/{id}(id=${bqm.id})}" method="post">
+                <input type="submit" value="delete" />
+              </form>
+	  		</td>
+	  	</tr>
+	  </tbody>	
+	</table>
+	</th:block>
+	<th:block th:if = "${bqms.size == 0}">
+		<p>クエストを作成してください</p>
+	</th:block>
+
+	<a th:href = "@{/bq/new}">New BigQuest</a>
+	<a th:href = "@{/}">re</a>
+</body>
+</html>

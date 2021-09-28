@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link th:href="@{/css/content.css}" rel="stylesheet">
+<title>Record Index</title>
+</head>
+<body>
+	<h1 th:text = "${sqm.subQuestName}"></h1>
+	<table>
+	  <thead>
+		<tr>
+			<th>Value</th>
+			<th>Recorded Day</th>
+			<th>Comment</th>
+			<th></th>
+		</tr>
+	  </thead>
+	  <tbody>
+	  	<tr th:each = "r : ${records}">
+	  		<td th:text ="${r.recordValue}"></td>
+	  		<td th:text = "${df.format(r.recordedDay)}"></td>
+	  		<td th:text = "${r.comment}"></td>
+	  		<td><a th:href = "@{/record/edit/{rid}(rid = ${r.id})}">Edit</a></td>
+	  	</tr>
+	  </tbody>	
+	</table>
+	<form th:action = "@{/record/new/{sid}(sid = ${sqm.id})}" method = "post">
+		<div class="recordValue"> 
+		<p>Record Value</p>
+		<input type = "number" name = "recordValue" step = "0.1"/>
+		<p th:text = "${sqm.unit}"></p>
+		</div>
+		<label>Comment</label>
+		<input type = "text" name = "comment"/>
+		<input type = "hidden" th:value = "${sqm.id}" name = "sqm"/>
+		<p><input type="submit" value="Record"></p>
+	</form>
+	<a th:href = "@{/sq/back/{sid}(sid = ${sqm.id})}">re</a>
+</body>
+</html>

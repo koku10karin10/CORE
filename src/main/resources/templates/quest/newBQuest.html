@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link th:href="@{/css/content.css}" rel="stylesheet">
+<title>Big Quest Create</title>
+</head>
+<body>
+	<h1>BigQuest Create</h1>
+	<form th:action = "@{/bq/new}" method = "post">
+		<input type = "text" name = "questName"/>
+		<select  name = "valueModel">
+		<option th:each = "vm : ${vms}" th:value = "${vm.id}" th:text = "${vm.value}" name = "value_model_id"></option>
+		
+		</select>
+		<p><input type="submit" value="送信する"></p>
+	</form>
+	
+	<a th:href = "@{/bq}">re</a>
+</body>
+</html>

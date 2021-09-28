@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<link th:href="@{/css/content.css}" rel="stylesheet">
+<title>index</title>
+</head>
+ <header class="site-header">
+	<a th:href = "@{/}">C.O.R.E</a>
+ </header>
+<body>
+<div class = "full">
+<div align="center">
+	<h1>C.O.R.E</h1>
+</div>
+<div class="container">
+	 <h1>Your Value</h1>
+	 <div class="value">
+    <div th:each = "value : ${values}" class = "inContainer">
+    	<a th:href = "@{/bq/{id}(id = ${value.id})}" th:text = "${value.value}"></a>
+    	<p th:text = "'Level:'+${value.level}"></p>
+    </div>
+    </div>
+    </div> 
+   <div align= "center" class="menu">
+    <a th:href = "@{/value/edit}">Edit Value</a>
+    <a th:href = "@{/bq}">Big Quest</a>
+    <a th:href = "@{/eq}">Extra Quest</a>
+    <a th:href = "@{/gacha}">GachaGacha</a>
+    </div>
+    
+  
+</div>
+</body>
+</html>

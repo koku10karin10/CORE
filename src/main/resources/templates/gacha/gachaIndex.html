@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link th:href="@{/css/content.css}" rel="stylesheet">
+<title>GachaGacha</title>
+</head>
+<body>
+	<h1>GachaGacha</h1>
+	<p>残りチケット数</p>
+	<p th:text = "${gm.gachaTicketCount}"></p>
+	<p th:text = "'ガチャポイント　　'+${gm.gachaPoint}+'/10'"></p>
+	<th:block th:if = "${gimCount > 0}">
+		<form th:action="@{/gacha/start}" method="post">
+			<input type = "submit" value = "ガチャを回す"/>
+		</form>
+	</th:block>
+	<th:block th:if = "${gimCount == 0}">
+		<p>ガチャアイテムを作成してください。</p>
+	</th:block>
+	<a th:href = "@{/gacha/item}">Gacha Items</a>
+	<a th:href = "@{/}">re</a>
+</body>
+</html>

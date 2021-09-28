@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>GachaItem</title>
+<link th:href="@{/css/content.css}" rel="stylesheet">
+</head>
+<body>
+	<h1>GachaItems</h1>
+	<table>
+	  <thead>
+		<tr>
+			<th>ItemName</th>
+			<th>Rarity</th>
+			<th></th>
+			<th></th>
+		</tr>
+	  </thead>
+	  <tbody>
+	  	<tr th:each = "gitem : ${gitems}">
+	  		<td th:text ="${gitem.gItem}"></td>
+	  		<td th:text = "${gitem.rarity.getRarityName()}"></td>
+	  		<td><a th:href = "@{/gacha/item/edit/{gIid}(gIid = ${gitem.id})}" >Edit</a></td>
+	  		<td>
+	  		  <form th:action="@{/gacha/item/delete/{gIid}(gIid=${gitem.id})}" method="post">
+                <input type="submit" value="delete" />
+              </form>
+	  		</td>
+	  	</tr>
+	  </tbody>	
+	</table>
+	<a th:href = "@{/gacha}">Gacha</a>
+	<a th:href = "@{/gacha/item/new}">NewGachaItemCreate</a>
+	<a th:href = "@{/}">Top</a>
+</body>
+</html>

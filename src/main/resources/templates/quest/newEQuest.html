@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link th:href="@{/css/content.css}" rel="stylesheet">
+<title>ExtraQuest Create</title>
+</head>
+<body>
+	<h1>ExtraQuest Create</h1>
+	<form th:action = "@{/eq/new}" method = "post">
+		<label>クエスト名は？</label>
+		<input type = "text" name = "extraQuestName"/>
+		<label>いくつ経験値がもらえますか？</label>
+		<input type = "number" name = "experiencePoint">
+		<p><input type="submit" value="Create"></p>
+	</form>
+	
+	<a th:href = "@{/eq}">re</a>
+</body>
+</html>

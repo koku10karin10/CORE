@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link th:href="@{/css/content.css}" rel="stylesheet">
+<title>Sub Quest Index</title>
+</head>
+<body>
+	<table>
+	  <thead>
+		<tr>
+			<th>SubQuest</th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+	  </thead>
+	  <tbody>
+	  	<tr th:each = "sqm : ${sqms}">
+	  		<td><a th:href = "@{/record/{sid}(sid = ${sqm.id})}" th:text ="${sqm.subQuestName}"></a></td>
+	  		<th:block th:if="${sqm.clear == false}">
+	  		<td>
+	  		  <form th:action="@{/sq/clear/{id}(id=${sqm.id})}" method="post">
+	  		  	<input type="hidden" th:value = "${bid.id}" name = "bid"/>
+                <input type="submit" value="Clear" />
+              </form>
+	  		</td>
+	  		</th:block>
+	  		<th:block th:if="${sqm.clear == true}">
+	  		<td>
+	  		  <p>Cleared</p>
+	  		</td>
+	  		</th:block>
+	  		<td><a th:href = "@{/sq/edit/{sid}(sid = ${sqm.id})}">Edit</a></td>
+	  		<td>
+	  		  <form th:action="@{/sq/delete/{id}(id=${sqm.id})}" method="post">
+                <input type="hidden" th : value = "${bid.id}" name = "bid"/>
+                <input type="submit" value="delete" />
+              </form>
+	  		</td>
+	  	</tr>
+	  </tbody>	
+	</table>
+	<p th:text ="${bid.questName}"></p>
+	<a th:href = "@{/sq/new/{bid}(bid = ${bid.id})}">New SubQuest</a>
+	<a th:href = "@{/bq}">re</a>
+</body>
+</html>

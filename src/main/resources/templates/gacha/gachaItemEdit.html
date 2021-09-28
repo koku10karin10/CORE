@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link th:href="@{/css/content.css}" rel="stylesheet">
+<title>GachaGacha</title>
+</head>
+<body>
+	<h1>GachaItemEdit</h1>
+	<form th:action="@{/gacha/item/edit/{gIid}(gIid = ${gItem.id})}" method="post">
+		<input type = "text" th:value = "${gItem.gItem}" name = "gItemName"/>
+		<select  name = "rarity_model_id">
+		<option th:selected = "${rm.id == gItem.rarity.getId()}" th:each = "rm : ${rms}" th:value = "${rm.id}" th:text = "${rm.rarityName}" name = "rarity_model_id"></option>
+		</select>
+		<input type = "submit" value = "Update"/>
+	</form>
+	<a th:href = "@{/gacha/item}">Gacha Items</a>
+	<a th:href = "@{/}">re</a>
+</body>
+</html>

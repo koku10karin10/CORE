@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link th:href="@{/css/content.css}" rel="stylesheet">
+<title>GachaResult</title>
+</head>
+<body>
+	<h1>GachaResult</h1>
+	<p th:text = "${selectedGItem}"></p>
+	<a th:href = "@{/gacha}">Gacha</a>
+	<a th:href = "@{/}">Top</a>
+</body>
+</html>

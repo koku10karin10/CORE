@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link th:href="@{/css/content.css}" rel="stylesheet">
+<title>ValueEdit</title>
+</head>
+<body>
+	<h1 th:text = "${value.value}"></h1>
+	<form th:action="@{/value/edit/{id}(id = ${value.id})}" method="post">
+		<input type = "text" th:value = "${value.value}" name = "value"/>
+		<input type = "number" th:value = "${value.ranking}" name = "ranking"/>
+		<input type = "submit" value = "Update"/>
+	</form>
+	<a th:href = "@{/}">Top</a>
+</body>
+</html>

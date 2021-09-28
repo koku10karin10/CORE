@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link th:href="@{/css/content.css}" rel="stylesheet">
+<title>Edit Value</title>
+</head>
+<body>
+ <header class="site-header">
+	<a th:href = "@{/}">C.O.R.E</a>
+ </header>
+	<h1>All Value</h1>
+	<a th:href = "@{/value/new}">NewValue</a>
+	<table>
+	  <thead>
+		<tr>
+			<th>Your Value</th>
+			<th></th>
+			<th></th>
+		</tr>
+	  </thead>
+	  <tbody>
+	  	<tr th:each = "value : ${values}">
+	  		<td th:text = "${value.value}"></td>
+	  		<td><a th:href = "@{/value/edit/{id}(id = ${value.id})}">Edit</a></td>
+	  		<td>
+	  		  <form th:action="@{/value/delete/{id}(id=${value.id})}" method="post">
+                <input type="submit" value="delete" />
+              </form>
+	  		</td>
+	  	</tr>
+	  </tbody>	
+	</table>
+	<a th:href = "@{/}">re</a>
+</body>
+</html>
