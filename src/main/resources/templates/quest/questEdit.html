@@ -6,6 +6,9 @@
 <title>BigQuestEdit</title>
 </head>
 <body>
+	<header class="site-header">
+	<a th:href = "@{/}">C.O.R.E</a>
+ </header>
 	<h1>BigQuestEdit</h1>
 	<form th:action="@{/bq/edit/{bid}(bid = ${bqm.id})}" method="post">
 		<input type = "text" th:value = "${bqm.questName}" name = "questName"/>
