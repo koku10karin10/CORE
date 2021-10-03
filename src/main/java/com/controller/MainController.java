@@ -340,7 +340,7 @@ private BigQuestRepository BQR;
 		gacha.gachaPointUp(upGachaPoint);
 		List<GachaModel> gm = gR.findAll();
 		System.out.println(gm.get(0).getGachaPoint());
-		return "redirect:/eq";
+		return "redirect:eq";
 	}
 	
 	@PostMapping("/eq/delete/{eid}")
