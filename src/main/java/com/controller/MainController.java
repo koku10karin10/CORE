@@ -346,7 +346,7 @@ private BigQuestRepository BQR;
 	@PostMapping("/eq/delete/{eid}")
 	public String deleteEQuest(@PathVariable ExtraQuestModel eid,Model model) {
 		EQR.delete(eid);
-		return "redirect:eq"; 
+		return "redirect:/eq"; 
 	}
 	
 	//Gacha
