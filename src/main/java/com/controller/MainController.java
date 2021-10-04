@@ -339,14 +339,14 @@ private BigQuestRepository BQR;
 		Integer upGachaPoint = eid.getExperiencePoint();
 		gacha.gachaPointUp(upGachaPoint);
 		List<GachaModel> gm = gR.findAll();
-		System.out.println(gm.get(0).getGachaPoint());
-		return "redirect:eq";
+		
+		return "redirect:/eq";
 	}
 	
 	@PostMapping("/eq/delete/{eid}")
 	public String deleteEQuest(@PathVariable ExtraQuestModel eid,Model model) {
 		EQR.delete(eid);
-		return "redirect:/eq"; 
+		return "redirect:eq"; 
 	}
 	
 	//Gacha
