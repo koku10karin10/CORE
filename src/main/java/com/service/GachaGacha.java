@@ -1,4 +1,4 @@
-package com.service.gacha;
+package com.service;
 
 import java.util.List;
 import java.util.Random;
@@ -9,9 +9,6 @@ import org.springframework.stereotype.Service;
 import com.model.GItemModel;
 import com.model.GachaModel;
 import com.model.RarityModel;
-import com.service.GItemRepository;
-import com.service.GachaRepository;
-import com.service.RarityRepository;
 @Service
 public class GachaGacha {
 	@Autowired
