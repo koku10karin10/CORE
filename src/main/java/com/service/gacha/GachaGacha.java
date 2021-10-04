@@ -1,4 +1,4 @@
-package com.service;
+package com.service.gacha;
 
 import java.util.List;
 import java.util.Random;
@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 import com.model.GItemModel;
 import com.model.GachaModel;
 import com.model.RarityModel;
+import com.service.GItemRepository;
+import com.service.GachaRepository;
+import com.service.RarityRepository;
 @Service
 public class GachaGacha {
 	@Autowired
@@ -39,7 +42,6 @@ public class GachaGacha {
 		List<GItemModel> gims = null;
 		Random random = new Random();
 		int selectedNumber = random.nextInt(101)+1;
-		System.out.println(selectedNumber);
 		if(selectedNumber >=1 && selectedNumber <=5){
 			//RarityがBADのもの
 			gims = getGachaItem(1);
@@ -89,9 +91,9 @@ public class GachaGacha {
 		
 	}
 	
-	public List<GItemModel> getGachaItem(Integer rarityId){
+	public List<GItemModel> getGachaItem(Integer rarityNumber){
 		List<GItemModel> gims = null;
-		RarityModel rm = rarityR.getById(rarityId);
+		RarityModel rm = rarityR.getRarityModelByRarityNumber(rarityNumber).get(0);
 		gims = gIR.findGItemByRarityId(rm);
 		return gims;
 	}

@@ -18,6 +18,17 @@ public class RarityModel {
 	@Column(name = "id")
 	private Integer id;
 	
+	@Column(name = "rarityNumber")
+	private Integer rarityNumber;
+	
+	public Integer getRarityNumber() {
+		return rarityNumber;
+	}
+
+	public void setRarityNumber(Integer rarityNumber) {
+		this.rarityNumber = rarityNumber;
+	}
+
 	@Column(name = "rarityName")
 	private String rarityName;
 	
