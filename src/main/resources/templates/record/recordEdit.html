@@ -5,6 +5,9 @@
 <link th:href="@{/css/content.css}" rel="stylesheet">
 <title>RecordEdit</title>
 </head>
+ <header class="site-header">
+	<a th:href = "@{/}">C.O.R.E</a>
+ </header>
 <body>
 	<h1>RecordEdit</h1>
 	<form th:action="@{/record/edit/{rid}(rid = ${r.id})}" method="post">

@@ -5,6 +5,9 @@
 <link th:href="@{/css/content.css}" rel="stylesheet">
 <title>ValueEdit</title>
 </head>
+ <header class="site-header">
+	<a th:href = "@{/}">C.O.R.E</a>
+ </header>
 <body>
 	<h1 th:text = "${value.value}"></h1>
 	<form th:action="@{/value/edit/{id}(id = ${value.id})}" method="post">

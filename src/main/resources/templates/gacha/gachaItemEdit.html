@@ -5,6 +5,9 @@
 <link th:href="@{/css/content.css}" rel="stylesheet">
 <title>GachaGacha</title>
 </head>
+ <header class="site-header">
+	<a th:href = "@{/}">C.O.R.E</a>
+ </header>
 <body>
 	<h1>GachaItemEdit</h1>
 	<form th:action="@{/gacha/item/edit/{gIid}(gIid = ${gItem.id})}" method="post">

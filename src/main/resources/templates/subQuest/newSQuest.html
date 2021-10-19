@@ -5,6 +5,9 @@
 <link th:href="@{/css/content.css}" rel="stylesheet">
 <title>Sub Quest Create</title>
 </head>
+ <header class="site-header">
+	<a th:href = "@{/}">C.O.R.E</a>
+ </header>
 <body>
 	<h1>SubQuest Create</h1>
 	<form th:action = "@{/sq/new/{bid}(bid = ${bqm.id})}" method = "post">
